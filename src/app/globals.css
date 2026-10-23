@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #5e1a93;
+  --color-brand-deep: #4a1475;
+  --color-brand-hover: #3f0f66;
+  --color-accent: #f28c00;
+  --color-accent-soft: #f7b65c;
+
+  --color-ink: #1e1d22;
+  --color-body: #2b2b30;
+  --color-muted: #4a4c52;
+  --color-subtle: #5c5f66;
+
+  --color-line: #e4e6ec;
+  --color-line-strong: #c9ccd3;
+  --color-mist: #f4f4f6;
+  --color-field: #f9f9fb;
+
+  --color-night: #2e2a33;
+  --color-night-line: #45404c;
+  --color-lavender: #e6daf0;
+  --color-ash: #b9b7bf;
+  --color-snow: #e9e8ec;
+}
+
+@theme inline {
+  --font-display: var(--font-archivo), sans-serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
+}
+
+/* Horizontal pinstripes used behind page heroes */
+@utility bg-stripes {
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-line) 0px,
+    var(--color-line) 2px,
+    transparent 2px,
+    transparent 9px
+  );
+}
+
+@layer base {
+  body {
+    background: #ffffff;
+    color: var(--color-body);
+    font-family: var(--font-sans);
+  }
+
+  a {
+    color: var(--color-brand);
+  }
+
+  a:hover {
+    color: var(--color-brand-hover);
+  }
+}
