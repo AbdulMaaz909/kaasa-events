@@ -18,8 +18,8 @@ export default function AboutPage() {
         <div aria-hidden="true" className="bg-stripes absolute inset-x-0 top-10 h-[300px]" />
         <div className="relative mx-auto flex max-w-7xl flex-wrap items-center gap-14 px-6 pb-[88px] pt-[72px]">
           <div className="flex min-w-0 flex-[1_1_480px] flex-col gap-[22px]">
-            <Eyebrow className="self-start bg-white py-1.5 pr-2.5">ABOUT KAASA EVENTS</Eyebrow>
-            <h1 className="m-0 bg-white font-display text-[clamp(42px,5.4vw,72px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-ink">
+            <Eyebrow className="self-start py-1.5 pr-2.5">ABOUT KAASA EVENTS</Eyebrow>
+            <h1 className="m-0 font-display text-[clamp(42px,5.4vw,72px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-ink">
               A Mumbai stall builder that shows you <span className="text-brand">the stall before it&apos;s built.</span>
             </h1>
             <p className="m-0 text-lg leading-[1.65] text-muted">

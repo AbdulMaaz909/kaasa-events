@@ -30,15 +30,19 @@
   --font-mono: var(--font-jetbrains), monospace;
 }
 
-/* Horizontal pinstripes used behind page heroes */
+/* Horizontal pinstripes used behind page heroes.
+   A whole-pixel tile (4px line + 1px gap) instead of repeating-linear-gradient with
+   half-pixel stops: fractional stops alias into a wavy moiré on high-DPR phones. */
 @utility bg-stripes {
-  background: repeating-linear-gradient(
+  background-image: linear-gradient(
     to bottom,
-    var(--color-line) 0px,
-    var(--color-line) 2.5px,
-    transparent 2.5px,
+    var(--color-line) 0,
+    var(--color-line) 4px,
+    transparent 4px,
     transparent 5px
   );
+  background-size: 100% 5px;
+  background-repeat: repeat-y;
 }
 
 /* Infinite horizontal marquee: track holds two identical copies and slides by half */

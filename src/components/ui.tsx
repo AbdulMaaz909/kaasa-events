@@ -102,8 +102,8 @@ export function PageHero({
       <div aria-hidden="true" className="bg-stripes absolute inset-x-0 top-10 h-[260px]" />
       <CircleCluster className="absolute right-[6%] top-[30px] hidden lg:block" />
       <div className="relative mx-auto flex max-w-7xl flex-col gap-[22px] px-6 pb-14 pt-[72px]">
-        <Eyebrow className="self-start bg-white py-1.5 pr-2.5">{eyebrow}</Eyebrow>
-        <h1 className="m-0 max-w-[900px] self-start bg-white pr-4 font-display text-[clamp(44px,6vw,80px)] font-extrabold leading-none tracking-[-0.02em] text-ink">
+        <Eyebrow className="self-start py-1.5 pr-2.5">{eyebrow}</Eyebrow>
+        <h1 className="m-0 max-w-[900px] self-start pr-4 font-display text-[clamp(44px,6vw,80px)] font-extrabold leading-none tracking-[-0.02em] text-ink">
           {title}
         </h1>
         <p className="m-0 max-w-[660px] text-[19px] leading-relaxed text-muted">{intro}</p>

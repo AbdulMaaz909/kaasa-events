@@ -38,10 +38,10 @@ export default async function Home() {
         <div aria-hidden="true" className="bg-stripes absolute inset-x-0 top-14 h-[380px]" />
         <div className="relative mx-auto flex max-w-7xl flex-wrap items-center gap-16 px-6 pb-24 pt-[88px]">
           <div className="flex min-w-0 flex-[1_1_480px] flex-col gap-7">
-            <div className="self-start bg-white py-1.5 pr-2.5 font-mono text-[13px] tracking-[0.14em] text-brand">
+            <div className="self-start py-1.5 pr-2.5 font-mono text-[13px] tracking-[0.14em] text-brand">
               EXHIBITION STALL DESIGN &amp; FABRICATION · MUMBAI
             </div>
-            <h1 className="m-0 bg-white font-display text-[clamp(44px,6vw,84px)] font-extrabold leading-[0.98] tracking-[-0.02em] text-ink font-stretch-[105%]">
+            <h1 className="m-0 font-display text-[clamp(44px,6vw,84px)] font-extrabold leading-[0.98] tracking-[-0.02em] text-ink font-stretch-[105%]">
               We design it in 3D.
               <br />
               <span className="text-brand">Then we build it for real.</span>
