@@ -7,18 +7,27 @@ import { ButtonLink, CircleCluster, Eyebrow, StepBadge } from "@/components/ui";
 import { clientBrands, leaders, processSteps, serviceSummaries } from "@/lib/site";
 
 const FOUNDED_YEAR = 2013;
+// Stalls count: 500 as of 2026, plus 35 for every year after that.
+const STALLS_BASE_YEAR = 2026;
+const STALLS_BASE_COUNT = 500;
+const STALLS_PER_YEAR = 35;
 
-// Cached so the page stays prerendered; refreshes daily, so the count ticks up each new year.
-async function getYearsInBusiness() {
+// Cached so the page stays prerendered; refreshes daily, so the stats tick up each new year.
+async function getCurrentYear() {
   "use cache";
   cacheLife("days");
-  return new Date().getFullYear() - FOUNDED_YEAR;
+  return new Date().getFullYear();
 }
 
 export default async function Home() {
+  const year = await getCurrentYear();
+  const yearsInBusiness = year - FOUNDED_YEAR;
+  const stallsDelivered =
+    STALLS_BASE_COUNT + Math.max(0, year - STALLS_BASE_YEAR) * STALLS_PER_YEAR;
+
   const stats = [
-    { value: `${await getYearsInBusiness()}+`, label: "Years building stalls" },
-    { value: "500+", label: "Stalls delivered" },
+    { value: `${yearsInBusiness}+`, label: "Years building stalls" },
+    { value: `${stallsDelivered}+`, label: "Stalls delivered" },
     { value: "10+", label: "Cities / venues" },
   ];
 
@@ -93,13 +102,24 @@ export default async function Home() {
 
       {/* CLIENTS */}
       <section className="border-y border-line bg-mist">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-12 gap-y-4 px-6 py-8">
-          <div className="font-mono text-xs tracking-[0.14em] text-subtle">BRANDS WE&apos;VE BUILT FOR</div>
-          {clientBrands.map((b) => (
-            <div key={b} className="font-display text-[22px] font-bold text-body">
-              {b}
+        <div className="mx-auto flex max-w-7xl items-center gap-x-12 px-6 py-8">
+          <div className="shrink-0 font-mono text-xs tracking-[0.14em] text-subtle">BRANDS WE&apos;VE BUILT FOR</div>
+          {/* Brand names slowly scroll right to left; the list is doubled so the loop is seamless */}
+          <div className="min-w-0 flex-1 overflow-hidden">
+            <div className="flex w-max animate-marquee">
+              {[0, 1].map((copy) =>
+                [...clientBrands, ...clientBrands].map((b, i) => (
+                  <div
+                    key={`${copy}-${i}`}
+                    aria-hidden={copy === 1 || i >= clientBrands.length ? true : undefined}
+                    className="shrink-0 pr-12 font-display text-[22px] font-bold whitespace-nowrap text-body"
+                  >
+                    {b}
+                  </div>
+                )),
+              )}
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
