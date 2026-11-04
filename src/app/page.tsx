@@ -1,17 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
+import { cacheLife } from "next/cache";
 import Footer from "@/components/Footer";
 import RenderVsReal from "@/components/RenderVsReal";
 import { ButtonLink, CircleCluster, Eyebrow, StepBadge } from "@/components/ui";
 import { clientBrands, leaders, processSteps, serviceSummaries } from "@/lib/site";
 
-const stats = [
-  { value: "[XX]+", label: "Years building stalls" },
-  { value: "[XXX]+", label: "Stalls delivered" },
-  { value: "[XX]", label: "Cities / venues" },
-];
+const FOUNDED_YEAR = 2013;
 
-export default function Home() {
+// Cached so the page stays prerendered; refreshes daily, so the count ticks up each new year.
+async function getYearsInBusiness() {
+  "use cache";
+  cacheLife("days");
+  return new Date().getFullYear() - FOUNDED_YEAR;
+}
+
+export default async function Home() {
+  const stats = [
+    { value: `${await getYearsInBusiness()}+`, label: "Years building stalls" },
+    { value: "500+", label: "Stalls delivered" },
+    { value: "10+", label: "Cities / venues" },
+  ];
+
   return (
     <>
       {/* HERO */}

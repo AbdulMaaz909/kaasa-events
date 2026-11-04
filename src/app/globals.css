@@ -35,9 +35,9 @@
   background: repeating-linear-gradient(
     to bottom,
     var(--color-line) 0px,
-    var(--color-line) 2px,
-    transparent 2px,
-    transparent 9px
+    var(--color-line) 2.5px,
+    transparent 2.5px,
+    transparent 5px
   );
 }
 

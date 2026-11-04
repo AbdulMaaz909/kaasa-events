@@ -30,7 +30,7 @@ export const leaders: Leader[] = [
   {
     name: "Akhtar Qureshi",
     role: "Proprietor & CEO",
-    phone: "+91 75060 73607",
+    phone: "+91 9049081419",
     tel: "+917506073607",
     photo: "/images/akhtar-qureshi.jpg",
     bio: "[One or two lines on Akhtar's experience and role.]",
