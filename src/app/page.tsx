@@ -7,9 +7,9 @@ import { ButtonLink, CircleCluster, Eyebrow, StepBadge } from "@/components/ui";
 import { clientBrands, leaders, processSteps, serviceSummaries } from "@/lib/site";
 
 const FOUNDED_YEAR = 2013;
-// Stalls count: 500 as of 2026, plus 35 for every year after that.
+// Stalls count: 4000 as of 2026, plus 35 for every year after that.
 const STALLS_BASE_YEAR = 2026;
-const STALLS_BASE_COUNT = 500;
+const STALLS_BASE_COUNT = 4000;
 const STALLS_PER_YEAR = 35;
 
 // Cached so the page stays prerendered; refreshes daily, so the stats tick up each new year.
@@ -67,7 +67,7 @@ export default async function Home() {
           </div>
 
           <div className="relative h-[500px] min-w-0 flex-[1_1_520px] sm:h-[660px]">
-            <CircleCluster full className="absolute -right-2.5 -top-[30px] z-0" />
+            <CircleCluster full className="absolute -right-2.5 -top-[30px] z-0 origin-top-right scale-50 sm:scale-100" />
             <div className="absolute right-0 top-[90px] z-[1] h-[380px] w-[70%] overflow-hidden rounded-[20px] shadow-[0_24px_48px_rgba(46,42,51,0.18)] sm:right-10 sm:top-[120px] sm:h-[520px] sm:w-[56%]">
               <Image
                 src="/images/nine-plus-nine-built-visitors.jpg"
